@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -42,7 +43,7 @@ public class ExpenseManager {
     public void list() {
         System.out.printf(" %-2s  %-12s  %-21s %-23s %n", "ID", "Date", "Description", "Amount");
         for (Expense expense : expenses){
-            System.out.printf(" %-2s  %-12s  %-21s %-23s %n", Integer.toString(expense.getId()), expense.getDate(), expense.getDescription(), Double.toString(expense.getAmount()));
+            System.out.printf(" %-2s  %-12s  %-21s %-23s %n", Integer.toString(expense.getId()), expense.getDate().format(Expense.formatter), expense.getDescription(), Double.toString(expense.getAmount()));
         }
     }
 
@@ -52,6 +53,16 @@ public class ExpenseManager {
             totalAmount += expense.getAmount();
         }
         System.out.println("Total expenses: $" + totalAmount);
+    }
+
+    public void summaryMonth(int month){
+        double totalAmount = 0;
+        for (Expense expense : expenses){
+            if (expense.getDate().getMonth() == Month.of(month)){
+                totalAmount += expense.getAmount();
+            }
+        }
+        System.out.println("Total expenses for " + Month.of(month).name() + ": $" + totalAmount);
     }
 
     public void delete(int id){
@@ -73,4 +84,5 @@ public class ExpenseManager {
         }
         return null;
     }
+
 }

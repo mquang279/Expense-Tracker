@@ -10,7 +10,7 @@ public class Expense {
     private double amount;
     private LocalDate date;
     private DateFormat dateFormat = DateFormat.getDateInstance();
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public Expense(String description, double amount) {
         this.id = ++lastId;
@@ -89,8 +89,8 @@ public class Expense {
         this.amount = amount;
     }
 
-    public String getDate() {
-        return date.format(formatter);
+    public LocalDate getDate() {
+        return date;
     }
 
     public void setDate(LocalDate date) {

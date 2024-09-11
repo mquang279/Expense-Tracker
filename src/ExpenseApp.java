@@ -16,10 +16,16 @@ public class ExpenseApp {
                 expenseManager.list();
                 break;
             case "summary":
-                expenseManager.summary();
+                if (args.length == 1){
+                    expenseManager.summary();
+                }
+                else expenseManager.summaryMonth(Integer.parseInt(args[2]));
                 break;
             case "delete":
                 expenseManager.delete(Integer.parseInt(args[2]));
+                break;
+            default:
+                System.out.println("ExpenseApp <command> [argurment]");
         }
         jsonManager.jsonUpdate(expenseManager.getExpenses());
     }
