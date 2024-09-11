@@ -1,7 +1,5 @@
 [
 {"id":"1","description":"Dinner","amount":"20.0","date":"2024-09-11"},
-{"id":"2","description":"Breakfast","amount":"100.0","date":"2024-09-11"},
-{"id":"3","description":"Flower","amount":"30.0","date":"2024-09-11"},
 {"id":"4","description":"Breakfast","amount":"20.0","date":"2024-09-11"},
 {"id":"5","description":"Lunch","amount":"2000.0","date":"2024-09-11"}
 ]

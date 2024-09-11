@@ -55,15 +55,22 @@ public class ExpenseManager {
     }
 
     public void delete(int id){
-        Expense expense = findExpense(id).orElseThrow(() -> new IllegalArgumentException("Expense with ID: " + id + " not found."));
-        expenses.remove(expense);
+        Expense expense = findExpense(id);
+        if (expense == null) System.out.println("Expense with ID: " + id + " not found!");
+        else{
+            expenses.remove(expense);
+            System.out.println("Deleted expense with ID: " + id + " successfully.");
+        }
     }
 
     public ArrayList<Expense> getExpenses() {
         return expenses;
     }
 
-    public Optional<Expense> findExpense(int id){
-        return expenses.stream().filter((task) -> task.getId() == id).findFirst();
+    public Expense findExpense(int id){
+        for (Expense expense : expenses){
+            if (expense.getId() == id) return expense;
+        }
+        return null;
     }
 }
