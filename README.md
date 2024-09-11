@@ -1,7 +1,7 @@
 # Expense Tracker
 This is a command-line interface (CLI) tool for managing your personal expenses. It allows you to add, delete, list, summarize expenses and store expenses into JSON file. 
 
-#Installation
+# Installation
 1.Clone the repository
 ```
 % git clone https://github.com/mquang279/Expense-Tracker.git
@@ -13,7 +13,7 @@ This is a command-line interface (CLI) tool for managing your personal expenses.
 % java ExpenseApp [command] <argument>
 ```
 
-#How to use
+# How to use
 ```
 // Adding an expense
 % java ExpenseApp add --description <description> --amount <amount>
